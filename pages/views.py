@@ -1,5 +1,6 @@
 from django.shortcuts import render
 
+from . import forms
 
 def HomePageView(request):
     return render(request, 'pages/index.html', {})
@@ -10,6 +11,9 @@ def AboutPageView(request):
 
 
 def ContactPageView(request):
+    context = {}
     if request.method == 'POST':
-        print(request.method.POST['email'])
-    return render(request, 'pages/contact.html', {})
+        context = {
+            'email': request.POST['email']
+        }
+    return render(request, 'pages/contact.html', context)

@@ -12,4 +12,7 @@
      <button type="submit">Submit</button>
    </div>
  </form>
+ {% if email %}
+  The email you entered was {{ email }}
+ {% endif %}
 {% endblock content %}
